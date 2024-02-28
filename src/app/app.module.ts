@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/admin/login/login.component';
@@ -15,9 +15,12 @@ import { CategoryProductsComponent } from './pages/website/category-products/cat
 import { CustomerCartComponent } from './pages/website/customer-cart/customer-cart.component';
 import { CheckoutComponent } from './pages/website/checkout/checkout.component';
 import { CustomerOrdersComponent } from './pages/website/customer-orders/customer-orders.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     LoginComponent,
     LayoutComponent,
@@ -33,10 +36,14 @@ import { CustomerOrdersComponent } from './pages/website/customer-orders/custome
     CustomerOrdersComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule
+    
   ],
-  providers: [
+  providers: [HttpClientModule,
     provideClientHydration()
   ],
   bootstrap: [AppComponent]

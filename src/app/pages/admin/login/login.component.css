@@ -6,6 +6,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-image: url('https://othmanstudio.net/wp-content/uploads/2019/08/refonte-enseigne-marjane-othmanstudio.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
    
 }
 
@@ -15,10 +19,7 @@
     align-items: stretch;
     /* Specify the background image for a specific element */
 
-    background-image: url('https://othmanstudio.net/wp-content/uploads/2019/08/refonte-enseigne-marjane-othmanstudio.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-align: center;
+   
 
 
 }
