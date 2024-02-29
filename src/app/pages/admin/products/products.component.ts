@@ -25,8 +25,7 @@ export class ProductsComponent {
     "productImageUrl":""
   }
 
-constructor(private productServ: ProductService){
-  
+constructor(private productServ: ProductService){ 
 }
 
   openSidePanel(){
