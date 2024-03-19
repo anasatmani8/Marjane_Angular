@@ -40,7 +40,8 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+
     
   ],
   providers: [HttpClientModule,
