@@ -1,24 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product/product.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { finalize } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router'; // Import ActivatedRoute
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrl: './landing.component.css'
+  selector: 'app-web-products',
+  templateUrl: './web-products.component.html',
+  styleUrls: ['./web-products.component.css']
 })
-export class LandingComponent implements OnInit {
+export class WebProductsComponent implements OnInit {
+
+
   productList: any[] = [];
   categoryList: any[] = [];
-  cartList:any[]=[];
   loading = false;
 
   constructor(
     private prodServ: ProductService,
     private router: Router,
     private route: ActivatedRoute // Inject ActivatedRoute here
-
   ) {}
   
 
@@ -26,7 +27,6 @@ export class LandingComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.loadData();
       this.getAllCategories();
-
     });
   }
 
@@ -61,20 +61,15 @@ export class LandingComponent implements OnInit {
       "CustId": 379,
       "ProductId": prouctId,
       "Quantity": 1,
-      "AddedDate": new Date().toISOString()
+      "AddedDate": new Date()
      }
-     console.log(prouctId);
-
+     
      this.prodServ.addToCart(addToCartObj).subscribe((res:any)=>{
-      console.log(res);
       if (res.result) {
-        alert('Product added  to cart successfully');
-        this.prodServ.cartUpdated$?.next(true);
+        alert('Product to cart');
       }else {
         alert(res.message);
       }
      })
     }
-
-    
 }

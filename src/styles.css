@@ -1,4 +1,6 @@
+
 @layer reset, primeng;
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap");
 
 @layer reset {
   button {
@@ -40,14 +42,14 @@
 }
 
 .bg-primary {
-  background-color: #81c408 !important;
+  background-color: #d1d7de !important;
 }
 
 .display-4 {
   font-size: calc(1.475rem + 2.7vw) !important;
   font-weight: 800 !important;
   line-height: 1.2 !important;
-  color: #81c408 !important;
+  color: #2f74d8 !important;
 }
 
 .empty {
@@ -164,7 +166,7 @@
 img {
   margin: 0 auto;
   display: block;
-  margin-top: 20%;
+  margin-top: 0%;
 }
 
 .validation-error {
@@ -267,4 +269,42 @@ select.form-select {
 
 .button-cell {
   white-space: nowrap;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* navbar.component.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d1d7de; /* Blue color, you can change it as needed */
+  padding: 10px 20px;
+}
+
+.navbar-logo img {
+  height: 50px; /* Adjust height as needed */
+}
+
+.navbar-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-item {
+  margin-right: 20px; 
+  /* Adjust spacing between menu items */
+}
+
+.navbar-link {
+  color: #000000; /* White color for links, you can change it as needed */
+  text-decoration: none;
+  font-size: 16px; /* Adjust font size as needed */
+}
+
+.navbar-link:hover {
+  text-decoration: underline;
 }

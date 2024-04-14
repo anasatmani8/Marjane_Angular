@@ -1,0 +1,36 @@
+
+
+.card-img-top {
+    height: 200px; /* Fixed height for card image */
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.card-buttons {
+    margin-top: auto;
+}
+
+.row{
+    margin: 5px;
+}

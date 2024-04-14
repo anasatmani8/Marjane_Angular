@@ -15,9 +15,15 @@ import { CategoryProductsComponent } from './pages/website/category-products/cat
 import { CustomerCartComponent } from './pages/website/customer-cart/customer-cart.component';
 import { CheckoutComponent } from './pages/website/checkout/checkout.component';
 import { CustomerOrdersComponent } from './pages/website/customer-orders/customer-orders.component';
+import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { MatCardModule } from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { WebProductsComponent } from './pages/website/web-products/web-products.component';
+//import { CarouselModule } from 'ngx-bootstrap/carousel';
 @NgModule({
   declarations: [
     
@@ -29,11 +35,12 @@ import { CommonModule } from '@angular/common';
     CategoriesComponent,
     OrderComponent,
     ProductsComponent,
-    LandingComponent,
     CategoryProductsComponent,
     CustomerCartComponent,
     CheckoutComponent,
-    CustomerOrdersComponent
+    CustomerOrdersComponent,
+    LandingComponent,
+    WebProductsComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +48,11 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-
+    MatCardModule, 
+    MatIconModule,
+    MatGridListModule,
+    NgbCarouselModule,
+    NgbModule,
     
   ],
   providers: [HttpClientModule,

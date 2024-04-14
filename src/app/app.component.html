@@ -1,1 +1,146 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <!-- Logo (aligned to the left) -->
+        <a class="navbar-brand" href="#">
+            <img src="https://www.marjane.ma/icons/logo_marjane.svg" alt="Marjane Logo" width="100" height="auto">
+        </a>
+
+        <!-- Navbar Toggle Button (for mobile) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Items (aligned to the right) -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <!-- Shop Link -->
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/shop">Shop</a>
+                </li>
+
+                <!-- Categories Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Categories
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li *ngFor="let category of categoryList">
+                            <a class="dropdown-item" (click)="navigateToProduct(category.categoryId)"
+                               routerLink="/products" [queryParams]="{ id: category.categoryId }">
+                                {{ category.categoryName }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Contact Link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownCart" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-shopping-cart fs-5 me-1" style="color: #202122;"></i>
+                        Panier
+                        <span class="position-absolute translate-middle badge rounded-pill bg-danger"
+                              *ngIf="cartList.length !== 0">
+                            {{ cartList.length }}
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end menuOnLeft rounded-0 mt-2"
+                        aria-labelledby="navbarDropdownCart">
+                        <ng-container *ngIf="cartList.length !== 0; else emptyCart">
+                            <li class="p-2" *ngFor="let cart of cartList">
+                                <div class="d-flex w-100 border-bottom justify-content-between align-items-center">
+                                    <div>
+                                        <img style="height: 70px; width: 100px !important;" class="img-fluid p-2" [src]="cart.productImageUrl" alt="">
+                                    </div>
+                                    <div >
+                                        <a href="#" class="text-decoration-none text-black fw-semibold">
+                                            <p class="m-0 p-0">{{ cart.productShortName }}</p>
+                                        </a>
+                                        <p>1 <i class="fa fa-times" style="color: #dededede;"></i> ${{ cart.productPrice }}</p>
+                                    </div>
+                                    <button type="button" (click)="removeCart(cart.productId)" class="btn fs-5 closeBtn" >
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </div>
+                            </li>
+                            
+                            <li class="dropdown-divider"></li>
+                            <li class="p-3">
+                                <div class="d-flex justify-content-between">
+                                    <span>Total: {{getTotalPrice()}} $</span>
+                                    
+                                </div>
+                            </li>
+                            <li class="p-3 text-center">
+                                <button type="button" class="btn btn-primary">Checkout</button>
+                            </li>
+                        </ng-container>
+                        <ng-template #emptyCart>
+                            <li>
+                                <p class="text-center mb-0">No Product Added to Cart</p>
+                            </li>
+                        </ng-template>
+                    </ul>
+                </li>
+                
+                
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
 <router-outlet></router-outlet>
+<footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="offset-md-1 col-md-2">
+          <h5>Marjane</h5>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Become A bigbasket Rider</a></li>
+            <li><a href="#">In News</a></li>
+            <li><a href="#">Green bigbasket</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Affiliate</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Careers at Marjane</a></li>
+            
+          </ul>
+        </div>
+        <div class="offset-md-1 col-md-2">
+          <h5>Help</h5>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">bb Wallet FAQs</a></li>
+            <li><a href="#">bb Wallet T&Cs</a></li>
+            <li><a href="#">Vendor Connect</a></li>
+          </ul>
+        </div>
+        <div class="offset-md-1 col-md-2">
+          <img class="footImg3" style="margin-left: 127px;" src="https://seeklogo.com/images/M/marjan-maroc-logo-9F7ECCFF76-seeklogo.com.png" alt="">
+            <div class="d-flex">
+                <img class="footImg" style="margin-left: 117px; margin-top: 20px;" src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+              alt="">
+            </div>
+            <div class="d-flex">
+                <img style="margin-left: 118px;" class="footImg2" src="https://cdn.worldvectorlogo.com/logos/available-on-the-app-store.svg" alt="">
+            </div>
+          <ul class="d-flex">
+            <li><a><i class="fa-brands fa-square-facebook"></i></a></li>
+            <li><a><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a><i class="fa-brands fa-pinterest"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>

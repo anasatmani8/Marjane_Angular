@@ -17,7 +17,8 @@ export class LoginComponent {
 
   onLogin() {
     if(this.loginObj.userName == "admin" && this.loginObj.password == "anas") {
-      this.router.navigateByUrl('/products')
+      this.router.navigateByUrl('/products');
+      console.log(this.loginObj);
 
     } else {
       alert('Wrong Credentials')
